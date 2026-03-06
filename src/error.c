@@ -6,15 +6,17 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 12:39:23 by akjoerse          #+#    #+#             */
-/*   Updated: 2026/02/25 13:42:47 by akjoerse         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:42:56 by akjoerse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
 void	foo(int bar)
 {
 	(void)bar;
 }
+
 void	error(char *msg)
 {
 	ft_printf(RED"error:");
@@ -32,7 +34,7 @@ void	debug_i(char *msg, int i)
 		ft_printf(GRN"%s"BLU"%d\n"DEF, msg, i);
 	else
 		ft_printf("unspecified debug statement.\n"DEF);
-}	
+}
 
 void	debug(char *msg)
 {

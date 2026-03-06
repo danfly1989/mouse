@@ -6,7 +6,7 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 12:13:57 by akjoerse          #+#    #+#             */
-/*   Updated: 2026/02/25 14:35:51 by akjoerse         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:42:56 by akjoerse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	init_mlx(t_cub *c)
 {
-	debug(BLU"entering 'init_mlx'");
 	t_mlx	*m;
 
+	debug(BLU"entering 'init_mlx'");
 	debug("attempting to allocate `t_mlx *m`");
 	m = malloc(sizeof(t_mlx));
 	if (!m || m == NULL)
-		exit (0);//TODO:integrate into exit function
+		exit(0);
 	m->win = NULL;
 	m->mlx = NULL;
 	m->img = NULL;

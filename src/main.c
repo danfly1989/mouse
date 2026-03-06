@@ -6,17 +6,12 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 10:43:15 by daflynn           #+#    #+#             */
-/*   Updated: 2026/03/05 20:52:10 by akjoerse         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:42:56 by akjoerse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/*
-** Zero-initialise game struct and set sentinel values for the fields
-** that the parser fills in. -1 is used for colors so is_meta_complete()
-** can distinguish "not yet set" from a valid packed RGB of 0.
-*/
 void	init_game(t_game *game)
 {
 	int	i;
@@ -29,7 +24,7 @@ void	init_game(t_game *game)
 	game->screen_height = 720;
 	game->mouse_y = game->screen_height / 2;
 	game->mousedelta_y = game->screen_height / 2;
-	game->mouse_sensitivity = 
+	game->mouse_sensitivity = 0.003;
 	game->floor_color = -1;
 	game->ceil_color = -1;
 	i = 0;
@@ -37,10 +32,6 @@ void	init_game(t_game *game)
 		game->tex_path[i++] = NULL;
 }
 
-/*
-** Initialise the MLX window and image buffer.
-** Called after the parser has filled in game->screen_width/height.
-*/
 static void	init_window(t_game *game)
 {
 	game->mlx = mlx_init();

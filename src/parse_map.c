@@ -6,7 +6,7 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 00:00:00 by daflynn           #+#    #+#             */
-/*   Updated: 2026/03/05 18:35:14 by akjoerse         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:42:56 by akjoerse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	set_player_spawn(t_game *game)
 		y++;
 	}
 }
-// void	parse_map_section(t_game *game, char **lines, int start)
-/* legacy*/
+
 void	parse_map_section(t_game *game, char **lines, int start)
 {
 	int	height;
@@ -63,65 +62,21 @@ void	parse_map_section(t_game *game, char **lines, int start)
 	}
 	set_map_width(game);
 }
-/**/
-/**/
-/**/
-/* skretch
-	//this limit seems arbitrary: there is no reason the map should be taller than it is wide
-	//\\////\\it is not arbitrary.
-	//\\/// \\..map.HAS.`n`.lines.
-*/
-	
-/* legacy*/
+
 void	set_map_width(t_game *game)
 {
 	int	i;
 	int	len;
 
 	i = 0;
+	len = 0;
 	game->map_width = 0;
-
 	while (i < game->map_height)
 	{
 		len = ft_strlen(game->map[i]);
 		if (len > game->map_width)
-		{
 			game->map_width = len;
-		}
 		i++;
 	}
 	game->map_Xlim = len;
 }
-/*
-////\\   ||   || \\\\\\
-//  //   ||   || \\  \\\ \\
-//////   ||||||| //\\/// //
-//  \\   ||   || //  \\\ \\\\
-//////   ||   || //  \\\ 
-
-width
-	// game->map_width = 0;
-	// 
-	// while (i < game->map_height)
-	// 
-	// game->map_width = len;
-	// 
-	// game->map_Xlim = len;
-	
-height
-	// t_game	game;
-	// game->map_height
-	// game->map
-	// int	start, height, i;
-	// start;
-	// height;
-	// i;
-	// game->;
-	// char	**lines;
-	// set_map_width(game);
-*/
-/* void	parse_map_section(t_game *game, char **lines, int start)
-{
-
-	return ;
-} */

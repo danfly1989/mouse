@@ -6,54 +6,21 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:32:52 by daflynn           #+#    #+#             */
-/*   Updated: 2026/03/05 18:48:27 by akjoerse         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:42:56 by akjoerse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-
-//for y calc passes game->pos_y
-//for x calc passes game->pos_x
-// int	is_wall(t_game *game, int x, int y)
-/* int	is_wall(t_game *game, int x, int y)
-{
-
-	if (x < 0 || y < 0 || y >= game->map_height)
-		return (1);
-	if ((x >= (int)ft_strlen(game->map[y]))
-	|| (game->pos_x >= (int)ft_strlen(game->map[y])))
-		return (1);
-	return (game->map[y][x] == '1' || game->map[y][x] == ' ');
-} */
-/*	empire strikes back*/
 int	is_wall(t_game *game, int x, int y)
 {
 	if (x < 0 || y < 0 || y >= game->map_height)
 		return (1);
 	if ((x >= (int)ft_strlen(game->map[y]))
-	|| (game->pos_x >= (int)ft_strlen(game->map[y])))
+		|| (game->pos_x >= (int)ft_strlen(game->map[y])))
 		return (1);
 	return (game->map[y][x] == '1' || game->map[y][x] == ' ');
 }
-/*	a new hope
-int	is_wall(t_game *game, double x, double y)
-{
-	double offset = 1.5;
-
-	// if (x - offset < 0 || y - offset < 0
-		// || y + offset >= (double)game->map_height)
-	if (x - 1 - offset < 0 || y - 1 - offset < 0
-		|| y + 1 + offset >= (double)game->map_height)
-		return (1);
-	// if ((x >= (int)ft_strlen(game->map[(int)y]))
-	// 	|| (game->pos_x + offset >= (double)ft_strlen(game->map[(int)y])))
-	if ((x + 1 >= (int)ft_strlen(game->map[(int)y]))
-		|| (game->pos_x + 1 + offset >= (double)ft_strlen(game->map[(int)y])))
-		return (1);
-	return (game->map[(int)y][(int)x] == '1'
-		|| game->map[(int)y][(int)x] == ' ');
-} */
 
 static void	init_ray(t_game *game, t_ray *ray, int x)
 {
@@ -76,7 +43,6 @@ static void	init_ray(t_game *game, t_ray *ray, int x)
 		* (ray->map_y + 1.0 - game->pos_y) * ray->delta_dist_y;
 	ray->hit = 0;
 }
-
 
 static void	cast_ray_until_hit(t_game *game, t_ray *ray)
 {

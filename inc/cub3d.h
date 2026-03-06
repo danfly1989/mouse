@@ -110,7 +110,6 @@ int				get_texture_index(t_ray *ray);
 void			calculate_texture_coords(t_game *game, t_ray *ray, t_img *tex);
 unsigned int	get_tex_pixel(t_img *tex, int x, int y);
 int				is_wall(t_game *game, int x, int y);
-// int				is_wall(t_game *game, double x, double y);
 
 /* ── parser ──────────────────────────────────────────────────────────────── */
 void			parse_cub_file(t_game *game, char *path);
