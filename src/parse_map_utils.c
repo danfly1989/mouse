@@ -6,7 +6,7 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 16:24:33 by daflynn           #+#    #+#             */
-/*   Updated: 2026/03/05 19:02:03 by akjoerse         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:42:56 by codex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,6 @@ int	count_map_rows(char **lines, int start)
 		count++;
 	return (count);
 }
-
-// void	set_map_width(t_game *game)
-/* legacy
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	game->map_width = 0;
-	//this limit seems arbitrary: there is no reason the map should be taller than it is wide
-	while (i < game->map_height)
-	{
-		len = ft_strlen(game->map[i]);
-		if (len > game->map_width)
-		{
-			game->map_width = len;
-		}
-		i++;
-	}
-	game->map_Xlim = len;
-} */
-// new
-// // [ss](#L40)
-
-// void	set_map_width(t_game *game)
-// {}
 
 void	set_ns_direction(t_game *game, char c)
 {
