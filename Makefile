@@ -11,6 +11,7 @@ SRC = src/main.c \
       src/raycasting_draw.c \
       src/raycasting_background.c \
       src/input.c \
+      src/input_mouse.c \
       src/texture_utils.c \
       src/parse.c \
       src/parse_file.c \

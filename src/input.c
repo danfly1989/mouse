@@ -6,7 +6,7 @@
 /*   By: akjoerse <akjoerse@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 11:35:01 by daflynn           #+#    #+#             */
-/*   Updated: 2026/03/06 10:20:00 by codex             ###   ########.fr       */
+/*   Updated: 2026/03/06 11:02:44 by akjoerse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,60 +64,6 @@ static t_dir	dir_enums(int keycode)
 	if (keycode == RIGHT_KEY || keycode == 'd' || keycode == 'D')
 		return (CLOCKWISE);
 	return (STILL);
-}
-
-static int	set_first_mouse_pos(t_game *game, int x)
-{
-	if (game->mouse_x == -1)
-	{
-		game->mouse_x = x;
-		return (1);
-	}
-	return (0);
-}
-
-static void	rotate_from_mouse(t_game *game, int x)
-{
-	int		delta;
-	double	angle;
-
-	delta = x - game->mouse_x;
-	angle = 0.003 * (double)delta;
-	game->warping = 1;
-	mlx_mouse_move(game->mlx, game->win,
-		game->screen_width / 2, game->screen_height / 2);
-	game->mouse_x = game->screen_width / 2;
-	rotate_player(game, angle);
-}
-
-int	handle_mouse(int x, int y, t_game *game)
-{
-	if (!game->mouse_family)
-		return (0);
-	if (game->warping)
-	{
-		game->warping = 0;
-		return (0);
-	}
-	if (set_first_mouse_pos(game, x))
-		return (0);
-	rotate_from_mouse(game, x);
-	render_frame(game);
-	(void)y;
-	return (1);
-}
-
-int	welcome_mouse(t_game *game)
-{
-	game->mouse_family = 1;
-	game->mouse_x = -1;
-	return (1);
-}
-
-int	goodbye_mouse(t_game *game)
-{
-	game->mouse_family = 0;
-	return (1);
 }
 
 int	handle_keypress(int keycode, t_game *game)
